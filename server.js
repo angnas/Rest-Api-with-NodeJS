@@ -1,11 +1,18 @@
 const express = require('express')
-const app = express()
-const port = 3000;
+const studentRoutes = require("./src/student/routes");
 
+const app = express();
+const port = 3001;
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
     res.send("hello world");
 })
+
+//v1 => version 1
+
+app.use('/api/v1/students', studentRoutes);
 
 
 
